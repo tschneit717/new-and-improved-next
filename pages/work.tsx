@@ -4,17 +4,16 @@ import styles from '../styles/Home.module.css';
 
 export { getServerSideProps } from './../api/pages/work'
 
-export default function Home(props) {
-    console.log(props)
+export default function PortfolioPage({ title, tagline, content }) {
+    console.log(title, tagline, content)
     return (
         <div className={styles.container}>
             <Head>
-                <title>Create Next App</title>
+                <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            <Layout>
-
+            <Layout title={title} tagline={tagline}>
+                <p>{content}</p>
             </Layout>
         </div>
     )

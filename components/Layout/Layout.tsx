@@ -3,10 +3,10 @@ import { Header } from "../Header"
 
 
 
-export default function Layout({ children }) {
+export default function Layout({ title, tagline, children }) {
     return (
         <div>
-            <Header></Header>
+            <Header title={title} tagline={tagline}></Header>
             <main>{children}</main>
             <Footer></Footer>
         </div>)
