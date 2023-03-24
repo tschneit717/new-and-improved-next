@@ -1,11 +1,10 @@
-import Head from 'next/head';
-import { Layout } from '../components/Layout';
-import styles from '../styles/Home.module.css';
+import Head from 'next/head'
+import { Layout } from '../components/Layout'
+import styles from '../styles/Home.module.css'
 
 export { getServerSideProps } from './../api/pages/homepage'
 
-export default function HomePage({ title, tagline, content }) {
-  console.log(title, tagline, content)
+export default function HomePage ({ title, tagline, content }) {
   return (
     <div className={styles.container}>
       <Head>

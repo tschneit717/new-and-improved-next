@@ -1,3 +1,3 @@
-export default function Logo () {
-    return <div></div>
+export default function Logo() {
+  return <div></div>
 }
