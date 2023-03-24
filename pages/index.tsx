@@ -1,24 +1,20 @@
 import Head from 'next/head';
+import { Layout } from '../components/Layout';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export { getServerSideProps } from './../api/pages/homepage'
+
+export default function Home(props) {
+  console.log(props)
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Layout>
 
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-      </main>
-
-      <footer>
-       
-      </footer>
+      </Layout>
     </div>
   )
 }

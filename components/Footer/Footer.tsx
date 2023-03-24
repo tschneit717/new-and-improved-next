@@ -1,3 +1,9 @@
 export default function Footer() {
-    return <footer></footer>
+    return (
+        <footer>
+            <div>
+                <p>Tom Schneider</p>
+            </div>
+        </footer>
+    )
 }
