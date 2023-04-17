@@ -1,8 +1,8 @@
-export default function Footer () {
+export default function Footer ({ content }): JSX.Element {
   return (
     <footer>
       <div>
-        <p>Tom Schneider</p>
+        <p>{content}</p>
       </div>
     </footer>
   )

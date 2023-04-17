@@ -1,17 +1,16 @@
 import Head from 'next/head'
 import { Layout } from '../components/Layout'
-import styles from '../styles/Home.module.css'
 
 export { getServerSideProps } from './../api/pages/uses'
 
-export default function UsesPage ({ title, tagline, content }) {
+export default function UsesPage ({ title, tagline, content, footer }): JSX.Element {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout title={title} tagline={tagline}>
+      <Layout title={title} tagline={tagline} footer={footer}>
         <p>{content}</p>
       </Layout>
     </div>
