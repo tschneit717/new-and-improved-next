@@ -1,0 +1,15 @@
+:root {
+  /* CSS HEX */
+  --honolulu-blue: #0e79b2ff;
+  --rose-red: #bf1363ff;
+  --platinum: #d7d9d7ff;
+  --sea-green: #519872ff;
+  --smoky-black: #231c07ff;
+  
+
+  --primary:var(--honolulu-blue);
+  --secondary:var(--rose-red);
+  --tertiary:var(--sea-green);
+  --light:var(--platinum);
+  --dark:var(--smoky-black);
+}

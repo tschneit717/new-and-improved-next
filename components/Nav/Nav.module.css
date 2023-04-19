@@ -1,0 +1,52 @@
+.navList {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 2rem;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: 'Chivo Mono', monospace;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+  flex-direction: column;
+}
+
+.navItem a {
+  background-image: linear-gradient(90deg,
+    var(--light) 0%,
+    var(--light) 50%,
+    var(--primary) 50%,
+    var(--primary) 100%);
+  background-size: 200%;
+  transition-delay: 0.0s, 0.15s;
+  transition: background-position .3s cubic-bezier(.47, .1, 1, .63);
+  display: block;
+  background-clip: text;
+  font-size: 1.25rem;
+  color: transparent
+}
+
+.navItem a.active {
+  background-image: linear-gradient(90deg,
+    var(--secondary) 0%,
+    var(--secondary) 50%,
+    var(--primary) 50%,
+    var(--primary) 100%);
+}
+
+.navItem a:hover {
+  background-position: -100% 100%;
+}
+
+.index {
+  font-size: 0.75rem;
+  margin-bottom:0.25rem;
+}
