@@ -1,0 +1,38 @@
+.accent {
+  color: var(--primary);
+}
+
+.accent[data-color=secondary] {
+  color: var(--secondary);
+}
+
+.accent[data-color=tertiary] {
+  color: var(--teriary);
+}
+
+.accent[data-color=light] {
+  color: var(--light);
+}
+
+.accent[data-color=dark] {
+  color: var(--dark);
+}
+
+.underscore {
+  animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  49.999% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
