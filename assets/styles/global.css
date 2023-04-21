@@ -1,3 +1,10 @@
+:root {
+  --SIDE: 180px;
+  --HALF-SIDE: 90px;
+  --TWO-SIDE: 300px;
+  --NEGATIVE-TWO-SIDE: -300px;
+}
+
 html,
 body {
   padding: 0;
@@ -6,6 +13,7 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: var(--dark);
   color: var(--light);
+  overflow-x: hidden;
 }
 
 a {

@@ -1,0 +1,77 @@
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+.wrapper::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.shape {
+  transform: skew(-40deg);
+  position: absolute;
+  z-index: 0;
+  width: 20px;
+  left: 0;
+}
+
+.shape[data-count="0"] { 
+  animation: moveBar 5.565s linear infinite;
+  background: var(--primary);
+  top: 50%;
+  height: 300px;
+}
+.shape[data-count="1"] {
+  animation: moveBar 4s linear infinite;
+  background: var(--secondary);
+  top: 44%;
+  height: 300px;
+}
+.shape[data-count="2"] {
+  animation: moveBar 3s linear infinite;
+  background: var(--secondary);
+  top: 36%;
+  height: 400px;
+}
+.shape[data-count="3"] {
+  animation: moveBar 10s linear infinite;
+  background: var(--primary);
+  top: 25%;
+  height: 320px;
+}
+.shape[data-count="4"] {
+  animation: moveBar 6s linear infinite;
+  background: var(--primary);
+  top: 32%;
+  height: 240px;
+}
+.shape[data-count="5"] {
+  animation: moveBar 4.1s linear infinite;
+  background: var(--primary);
+  top: 41%;
+  height: 380px;
+}
+.shape[data-count="6"] {
+  animation: moveBar 7s linear infinite;
+  background: var(--tertiary);
+  top: 60%;
+  height: 600px;
+}
+
+
+@keyframes moveBar {
+  0% {
+    transform: skew(-50deg) translateY(700px) translateX(-200px)
+  }
+  100% {
+    transform: skew(-50deg) translateY(-1500px) translateX(-200px)
+  }
+}

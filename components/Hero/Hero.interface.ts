@@ -1,6 +1,6 @@
 export interface HeroProps {
   text: string
-  subtext: string
+  subtext?: string
   image?: {
     alt: string
     src: string

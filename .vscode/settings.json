@@ -26,4 +26,7 @@
   "eslint.run": "onType",
   "eslint.lintTask.enable": true,
   "eslint.packageManager": "npm",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.format.enable": true,
+  "standardFormat.formatOnSave": true,
 }
