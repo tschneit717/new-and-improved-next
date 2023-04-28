@@ -20,10 +20,37 @@
   font-family: 'Chivo Mono', monospace;
 }
 
+.mobileTitle {
+  display: inline
+}
+.title {
+  display: none
+}
+
+@media only screen and (min-width: 600px) {
+  .mobileTitle {
+    display: none
+  }
+  .title {
+    display: inline
+  }
+}
+
+.mobileTitle,
 .title {
   color: var(--primary);
 }
 
 .dot {
   color: var(--light);
+}
+
+.tagline {
+  display: none
+}
+
+@media only screen and (min-width: 600px) {
+  .tagline {
+    display: block;
+  }
 }

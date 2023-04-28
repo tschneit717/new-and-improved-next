@@ -1,6 +1,6 @@
 .navList {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 2rem;
@@ -9,6 +9,11 @@
   margin: 0;
   list-style: none;
   font-family: 'Chivo Mono', monospace;
+  background: var(--dark);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
 }
 
 .navItem {
@@ -49,4 +54,17 @@
 .index {
   font-size: 0.75rem;
   margin-bottom:0.25rem;
+}
+
+.hidden {
+  transform: translateX(200px);
+}
+
+@media only screen and (min-width: 600px) {
+  .navList {
+    flex-direction: row;
+  }
+  .hidden {
+    transform: translateX(0px);
+  }
 }

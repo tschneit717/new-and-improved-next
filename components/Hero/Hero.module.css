@@ -9,13 +9,22 @@
   position: relative;
   overflow: hidden;
 }
-
 .hero h2 {
-  font-size: 8rem
+  font-size: 2.5rem
+}
+@media only screen and (min-width: 768px) {
+  .hero h2 {
+    font-size: 8rem
+  }
 }
 
 .hero p {
-  font-size: 1.5rem
+  font-size: 1rem
+}
+@media only screen and (min-width: 768px) {
+  .hero p {
+    font-size: 1.5rem
+  }
 }
 
 .hero img {

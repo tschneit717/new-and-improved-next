@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import cn from 'classnames'
 import styles from './Nav.module.css'
+import { useState } from 'react'
 
-export default function Nav (): JSX.Element {
+export default function Nav(): JSX.Element {
   const router = useRouter()
+  const [isHidden, toggleIsHidden] = useState(true)
 
   const navItems = [
     {
@@ -30,7 +32,8 @@ export default function Nav (): JSX.Element {
   ]
   return (
     <nav>
-      <ul className={styles.navList}>
+      <button className={styles.mobileButton} onClick={toggleIsHidden.bind(this, !isHidden)} />
+      <ul className={cn(styles.navList, { [styles.hidden]: isHidden })}>
         {navItems.map(
           (navLink, index) => (
             <li className={styles.navItem} key={navLink.path}>
