@@ -32,7 +32,11 @@ export default function Nav(): JSX.Element {
   ]
   return (
     <nav>
-      <button className={styles.mobileButton} onClick={toggleIsHidden.bind(this, !isHidden)} />
+      <button data-menu-visible={!isHidden} className={styles.mobileButton} onClick={toggleIsHidden.bind(this, !isHidden)}>
+        <span className={styles.mobileButtonLine} />
+        <span className={styles.mobileButtonLine} />
+        <span className={styles.mobileButtonLine} />
+      </button>
       <ul className={cn(styles.navList, { [styles.hidden]: isHidden })}>
         {navItems.map(
           (navLink, index) => (

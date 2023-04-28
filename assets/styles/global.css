@@ -3,6 +3,7 @@
   --HALF-SIDE: 90px;
   --TWO-SIDE: 300px;
   --NEGATIVE-TWO-SIDE: -300px;
+  --breakpoint: 1000px;
 }
 
 html,

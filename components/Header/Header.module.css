@@ -27,15 +27,6 @@
   display: none
 }
 
-@media only screen and (min-width: 600px) {
-  .mobileTitle {
-    display: none
-  }
-  .title {
-    display: inline
-  }
-}
-
 .mobileTitle,
 .title {
   color: var(--primary);
@@ -49,7 +40,13 @@
   display: none
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px) {
+  .mobileTitle {
+    display: none
+  }
+  .title {
+    display: inline
+  }
   .tagline {
     display: block;
   }

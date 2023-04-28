@@ -2,10 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 2rem;
   height: 100%;
-  padding: 0;
   margin: 0;
   list-style: none;
   font-family: 'Chivo Mono', monospace;
@@ -14,6 +13,9 @@
   top: 0;
   right: 0;
   height: 100vh;
+  padding: 100px 20px 0 20px;
+  transition: transform 0.3s ease-in-out;
+  border-left: 1px solid var(--light)
 }
 
 .navItem {
@@ -60,9 +62,53 @@
   transform: translateX(200px);
 }
 
-@media only screen and (min-width: 600px) {
+.mobileButton {
+  display: flex;
+  background: var(--dark);
+  width: 50px;
+  height: 50px;
+  padding: 12px 10px;
+  border: 1px solid var(--light);
+  position: fixed;
+  z-index: 10;
+  top: 20px;
+  right: 20px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.mobileButtonLine {
+  height: 1px;
+  width: 100%;
+  display: block;
+  background: var(--light);
+  transition: all 0.3s ease-in-out;
+  transform-origin: 50% 50%;
+}
+
+[data-menu-visible="true"] .mobileButtonLine:not(:first-child):not(:last-child) {
+  opacity: 0;
+}
+[data-menu-visible="true"] .mobileButtonLine:first-child {
+  transform: rotate(45deg) translateX(8px) translateY(8px);
+}
+[data-menu-visible="true"] .mobileButtonLine:last-child {
+  transform: rotate(-45deg) translateX(8px) translateY(-8px);
+}
+
+@media only screen and (min-width: 1000px) {
+  .mobileButton {
+    display: none;
+  }
+
   .navList {
     flex-direction: row;
+    background: none;
+    height: auto;
+    position: relative;
+    justify-content: flex-end;
+    padding: 0;
+    border: none;
   }
   .hidden {
     transform: translateX(0px);
