@@ -7,9 +7,25 @@
   min-height: 400px;
 }
 
+.contentBox p,
+.contentBox h2 {
+  z-index: 1;
+}
+
 .h2 {
   font-size: 2.5rem;
   font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.p {
+  margin-bottom: 1rem;
+}
+
+.img {
+  max-width: 300px;
+  height: auto;
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -23,7 +39,7 @@
   background: linear-gradient(to bottom, var(--primary), var(--secondary));
 }
 
-.contentBox[data-count="1"]::before {
+.contentBox:nth-child(odd)::before {
   left: 0;
  }
 
@@ -36,7 +52,7 @@
   border-style: solid;
 }
 
-.contentBox[data-count="1"] .countBox1 {
+.contentBox:nth-child(odd) .countBox1 {
   left: 0;
   top: -40px;
   border-bottom: none;
@@ -55,7 +71,7 @@
   border-style: solid;
 }
 
-.contentBox[data-count="1"] .countBox2 {
+.contentBox:nth-child(odd) .countBox2 {
   top: calc(-100% - 38px);
   right: 0;
   border-top: none;
@@ -66,10 +82,10 @@
 }
 
 
-.contentBox[data-count="2"]::before {
+.contentBox:nth-child(even)::before {
   right: 0;}
 
-.contentBox[data-count="2"] .countBox1 {
+.contentBox:nth-child(even) .countBox1 {
   left: 0;
   top: -98px;
   border-top: none;
@@ -79,7 +95,7 @@
   border-bottom-left-radius: 60px;
 }
 
-.contentBox[data-count="2"] .countBox2 {
+.contentBox:nth-child(even) .countBox2 {
   top: calc(-60px);
   right: 0;
   border-bottom: none;

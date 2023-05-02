@@ -1,5 +1,5 @@
 export interface ContentBoxProps {
   headline: string
-  copy: string
+  copy: any[]
   count: number
 }

@@ -12,7 +12,6 @@
   align-items: flex-start;
   flex-direction: row;
   line-height: 1;
-  box-shadow: 0 60px 30px 10px var(--dark);
 }
 
 .titleSection {
