@@ -1,0 +1,90 @@
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  position: relative;
+  margin: 48px 8rem;
+  min-height: 400px;
+}
+
+.h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contentBox::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.contentBox[data-count="1"]::before {
+  left: 0;
+ }
+
+.contentBox .countBox1 {
+  width: 80%;
+  position: absolute;
+  height: 40px;
+  display: block;
+  border: solid 2px transparent;
+  border-style: solid;
+}
+
+.contentBox[data-count="1"] .countBox1 {
+  left: 0;
+  top: -40px;
+  border-bottom: none;
+  border-right: none;
+  background: linear-gradient(var(--dark), var(--dark)) padding-box,
+  linear-gradient(to right, var(--primary), var(--secondary)) border-box;
+  border-top-left-radius: 60px;
+}
+
+.contentBox .countBox2 {
+  width: 21%;
+  position: absolute;
+  height: 100%;
+  display: block;
+  border: solid 2px transparent;
+  border-style: solid;
+}
+
+.contentBox[data-count="1"] .countBox2 {
+  top: calc(-100% - 38px);
+  right: 0;
+  border-top: none;
+  border-left: none;
+  background: linear-gradient(var(--dark), var(--dark)) padding-box,
+  linear-gradient(to left, var(--primary), var(--secondary)) border-box;
+  border-bottom-right-radius: 60px;
+}
+
+
+.contentBox[data-count="2"]::before {
+  right: 0;}
+
+.contentBox[data-count="2"] .countBox1 {
+  left: 0;
+  top: -98px;
+  border-top: none;
+  border-right: none;
+  background: linear-gradient(var(--dark), var(--dark)) padding-box,
+  linear-gradient(to left, var(--primary), var(--secondary)) border-box;
+  border-bottom-left-radius: 60px;
+}
+
+.contentBox[data-count="2"] .countBox2 {
+  top: calc(-60px);
+  right: 0;
+  border-bottom: none;
+  border-left: none;
+  background: linear-gradient(var(--dark), var(--dark)) padding-box,
+  linear-gradient(to right, var(--primary), var(--secondary)) border-box;
+  border-top-right-radius: 60px;
+}
