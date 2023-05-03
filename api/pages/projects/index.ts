@@ -1,7 +1,7 @@
 import { client } from '../../client'
 
 export async function getServerSideProps({ req, res }): Promise<{ props: { title: string, mobileTitle: string, tagline: string, content: string, accent: string } }> {
-  const data = await client.fetch('*[ _type == "project" && slug.current == "home" ]')
+  const data = await client.fetch('*[ _type == "project" && slug.current == "projects" ]')
   const { title, mobileTitle, tagline, content, accent } = data[0]
   return {
     props: {

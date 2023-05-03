@@ -4,7 +4,7 @@ import styles from './ContentBox.module.css'
 
 type renderChildType = (child: any) => JSX.Element
 
-export default function ContentBox ({ headline, copy, count }: ContentBoxProps): JSX.Element {
+export default function ContentBox ({ headline, copy, count, children }: ContentBoxProps): JSX.Element {
   const renderChild: renderChildType = (child) => {
     if (child.type === 'text') {
       return <p key={child.id} className={styles.p}>{child.content}</p>
@@ -29,9 +29,12 @@ export default function ContentBox ({ headline, copy, count }: ContentBoxProps):
         <div className={styles.countBox1}/>
         <div className={styles.countBox2}/>
         <h2 className={styles.h2}>{headline}</h2>
-        {copy.map(item => {
-          return renderChild(item)
-        })}
+        {copy
+          ? copy.map(item => {
+            return renderChild(item)
+          })
+          : <></>}
+        {children}
       </div>
     </>
   )

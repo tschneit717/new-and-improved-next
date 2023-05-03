@@ -3,13 +3,13 @@
   --honolulu-blue: #0e79b2ff;
   --rose-red: #bf1363ff;
   --platinum: #d7d9d7ff;
-  --sea-green: #519872ff;
-  --smoky-black: #231c07ff;
+  --shamrock: #499F68ff;
+  --rich-black: #071013ff;
   
 
   --primary:var(--honolulu-blue);
   --secondary:var(--rose-red);
-  --tertiary:var(--sea-green);
+  --tertiary:var(--shamrock);
   --light:var(--platinum);
-  --dark:var(--smoky-black);
+  --dark:var(--rich-black);
 }

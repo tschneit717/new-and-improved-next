@@ -1,5 +1,7 @@
-export interface ContentBoxProps {
+import { type PropsWithChildren } from 'react'
+
+export interface ContentBoxProps extends PropsWithChildren {
   headline: string
-  copy: any[]
   count: number
+  copy?: any[]
 }

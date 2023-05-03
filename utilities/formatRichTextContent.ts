@@ -1,5 +1,6 @@
 import { type SanityClient } from 'next-sanity'
-import urlBuilder from '@sanity/image-url'
+
+import { buildImageUrl } from './buildImageUrl'
 
 interface entryTypes {
   _key: string
@@ -26,18 +27,7 @@ export const formatRichTextContent: formatRichTextContentType = (client, content
       }
     }
     if (entry._type === 'image') {
-      const src = urlBuilder(client)
-        .image(entry.asset)
-        .width(800)
-        .fit('max')
-        .auto('format')
-        .url()
-
-      return {
-        id: entry._key,
-        type: 'image',
-        props: { src, alt: entry.alt ?? '' }
-      }
+      return buildImageUrl(entry, client)
     }
     return {}
   })

@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import { Layout } from '../components/Layout'
+import { ContentBox } from '../components/ContentBox'
+import { Image } from '../components/Image'
 
 export { getServerSideProps } from './../api/pages/work'
 
-export default function PortfolioPage({ title, mobileTitle, tagline, content, accent, footer }): JSX.Element {
+export default function ResumePage({ title, mobileTitle, tagline, content, companies, accent, footer }): JSX.Element {
   return (
     <div>
       <Head>
@@ -11,7 +13,17 @@ export default function PortfolioPage({ title, mobileTitle, tagline, content, ac
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
-        <p>{content}</p>
+        {companies.map(company => {
+          console.log(company.image.props.src)
+          return (
+            <ContentBox key={company._key} count={1} headline={company.company}>
+              <div className="">
+                <Image src={company.image.props.src} alt={company.company}/>
+              </div>
+              <p>{company.description}</p>
+            </ContentBox>
+          )
+        })}
       </Layout>
     </div>
   )
