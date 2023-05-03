@@ -6,7 +6,6 @@ type renderChildType = (child: any) => JSX.Element
 
 export default function ContentBox ({ headline, copy, count }: ContentBoxProps): JSX.Element {
   const renderChild: renderChildType = (child) => {
-    console.log(child)
     if (child.type === 'text') {
       return <p key={child.id} className={styles.p}>{child.content}</p>
     }
