@@ -4,6 +4,9 @@
   padding: 2rem 4rem;
   position: relative;
   margin: 48px 8rem;
+}
+
+.minHeight {
   min-height: 400px;
 }
 

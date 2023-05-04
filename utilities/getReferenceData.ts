@@ -6,9 +6,7 @@ export const getReferenceData: getReferenceDataType = async (referenceName, sour
   return result.map(item => {
     if (item.image.asset || item.asset) {
       const lookupRef = item.image || item
-      console.log(item.image)
-      console.log(item)
-      console.log(item)
+      console.log('itemImage', item.image)
       item.image = buildImageUrl(lookupRef, client, item)
     }
     return item

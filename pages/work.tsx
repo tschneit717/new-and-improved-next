@@ -14,12 +14,10 @@ export default function ResumePage({ title, mobileTitle, tagline, content, compa
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         {companies.map(company => {
-          console.log(company.image.props.src)
+          const src = company.image.props.src
           return (
-            <ContentBox key={company._key} count={1} headline={company.company}>
-              <div className="">
-                <Image src={company.image.props.src} alt={company.company}/>
-              </div>
+            <ContentBox minHeight={false} key={company._key} count={1} headline={company.company}>
+              {/* <Image fill={false} width={400} height={200} src={src} classes="blockImage" alt={company.company} /> */}
               <p>{company.description}</p>
             </ContentBox>
           )
