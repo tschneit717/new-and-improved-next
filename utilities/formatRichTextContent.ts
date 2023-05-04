@@ -27,7 +27,7 @@ export const formatRichTextContent: formatRichTextContentType = (client, content
       }
     }
     if (entry._type === 'image') {
-      return buildImageUrl(entry, client)
+      return buildImageUrl(entry, client, entry)
     }
     return {}
   })

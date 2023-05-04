@@ -12,8 +12,6 @@ export const buildImageUrl: BuildImageUrlType = (image, client, originalAsset) =
       .auto('format')
       .url()
 
-    console.log(`img: ${image}`)
-    console.log(`src: ${src}`)
     return {
       id: originalAsset._id ?? image._key,
       type: 'image',

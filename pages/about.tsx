@@ -14,7 +14,7 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         <Box>
-          <ContentBox count={1} headline={'Who am I'} copy={content}/>
+          <ContentBox count={1} headline={'Who am I'} copy={content} />
         </Box>
       </Layout>
     </div>
