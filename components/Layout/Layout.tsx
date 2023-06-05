@@ -12,7 +12,7 @@ export default function Layout({ title, mobileTitle, tagline, accent, children, 
       {(hero && (hero?.text || hero?.image)) && (
         <Hero text={hero.text} subtext={hero.subtext} image={hero.image}></Hero>
       )}
-      <main className={styles.main}>{children}</main>
+      {children ? <main className={styles.main}>{children}</main> : <></>}
       <Footer content={footer}></Footer>
     </div>)
 }

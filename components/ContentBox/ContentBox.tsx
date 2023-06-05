@@ -27,22 +27,22 @@ export default function ContentBox({ image, headline, copy, count, minHeight = t
   }
   console.log(image)
   return (
-    <>
-      <div className={cn([styles.contentBox, { [styles.minHeight]: minHeight }])} data-count={count}>
+    <div className={styles.container}>
         {image
-          ? <div>
-          <Image fill={true} src={image} alt={headline}/>
-        </div>
+          ? (
+              <Image classes={styles.imageContainer} fill={true} src={image.src} alt={headline}/>
+            )
           : <></>
         }
+      <div className={cn([styles.contentBox, { [styles.minHeight]: minHeight }])} data-count={count}>
         <h2 className={styles.h2}>{headline}</h2>
         {copy
           ? copy.map(item => {
             return renderChild(item)
           })
           : <></>}
-        {children}
+        {children ? <div className={styles.children}>{children}</div> : <></>}
       </div>
-    </>
+    </div>
   )
 }

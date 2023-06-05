@@ -14,7 +14,7 @@ export async function getServerSideProps({ req, res }): Promise<{ props: { title
       tagline,
       content,
       accent: accent ?? '',
-      image: imageFormatted ?? ''
+      image: imageFormatted ? imageFormatted.props : {}
     }
   }
 }

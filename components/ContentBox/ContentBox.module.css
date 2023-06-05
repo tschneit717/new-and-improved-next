@@ -1,9 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto 0;
+  gap: 2rem;
+}
+
+.container:first-child {
+  margin-top: 4rem;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
 .contentBox {
   display: flex;
   flex-direction: column;
   padding: 2rem 4rem;
   position: relative;
-  margin: 48px 8rem;
+  margin: 0rem auto 3rem;
 }
 
 .minHeight {
@@ -30,6 +49,16 @@
   height: auto;
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.imageContainer {
+  position: relative;
+  min-height: 400px;
+  min-width: 300px;
+}
+
+.imageContainer img {
+  object-fit: cover;
 }
 
 .contentBox {
@@ -108,4 +137,8 @@
   background: linear-gradient(var(--dark), var(--dark)) padding-box,
   linear-gradient(to right, var(--primary), var(--secondary)) border-box;
   border-top-right-radius: 60px;
+}
+
+.children {
+  position: relative;
 }
