@@ -32,19 +32,21 @@
   margin-bottom: 1rem;
 }
 
-.contentBox::before {
-  content: '';
-  width: 2px;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
+.contentBox {
+  background-clip: padding-box;
   background: linear-gradient(to bottom, var(--primary), var(--secondary));
 }
 
-.contentBox:nth-child(odd)::before {
-  left: 0;
- }
+.contentBox::before {
+  content: '';
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  top: 2px;
+  left: 2px;
+  display: block;
+  position: absolute;
+  background: linear-gradient(var(--dark), var(--dark));
+}
 
 .contentBox .countBox1 {
   width: 80%;
