@@ -38,7 +38,8 @@
   display: block;
   background-clip: text;
   font-size: 1.25rem;
-  color: transparent
+  color: transparent;
+  white-space: nowrap;
 }
 
 .navItem a.active {

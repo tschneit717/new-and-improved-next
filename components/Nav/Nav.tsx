@@ -18,16 +18,16 @@ export default function Nav(): JSX.Element {
       path: '/about'
     },
     {
-      title: 'projects',
-      path: '/projects'
-    },
-    {
       title: 'work',
       path: '/work'
     },
     {
       title: 'uses',
       path: '/uses'
+    },
+    {
+      title: 'contact',
+      path: '/contact'
     }
   ]
   return (
