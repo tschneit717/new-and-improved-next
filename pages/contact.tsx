@@ -51,7 +51,7 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         <Box>
           <ContentBox count={1} headline={'Get a hold of me'} copy={content}>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} isNetlifyForm>
               {/* Real Fields */}
               <Form.Input onChange={handleFormData} type="text" value={formData.namewerdsf} label="Name" required name="namewerdsf" />
               <Form.Input onChange={handleFormData} type="text" value={formData.emaillkew} label="Email" required name="emaillkew" />
