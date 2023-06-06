@@ -1,0 +1,51 @@
+.textareaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.textareaWrapper textarea {
+  padding: 0.5rem;
+  border: none;
+  background-clip: padding-box;
+  color: white;
+  background: none;
+  position: relative;
+  z-index: 3;
+  font-family: 'Chivo Mono', monospace;
+  outline: none;
+  font-size: 0.75rem;
+  min-width: 100%;
+  min-height: 100px;
+}
+
+.textareaWrapper .textarea:after {
+  content: '';
+  width: calc(100%);
+  height: calc(100% - 4px);
+  top: 2px;
+  display: block;
+  position: absolute;
+  background: linear-gradient(var(--dark), var(--dark));
+  z-index: 2;
+}
+
+.textareaWrapper .textarea:before {
+  content: '';
+  width: calc(100%);
+  height: calc(100% - 4px);
+  top: 4px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.label {
+  position: relative;
+  z-index: 3;
+  font-family: 'Iceland', cursive;
+}

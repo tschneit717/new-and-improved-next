@@ -4,31 +4,33 @@ import { ContentBox } from '../components/ContentBox'
 import { Box } from '../components/Box'
 import { Form } from '../components/Form'
 import { type FormEvent, useState, type ChangeEvent } from 'react'
+import { Button } from '../components/Button'
 
 export { getServerSideProps } from './../api/pages/contact'
 
 export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    if (formData.spot1.length > 0 || formData.spot2.length > 0 || formData.spot3.length > 0) {
+    if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
       console.log('Spam detected')
     } else {
       console.log('Form submitted')
     }
   }
   const [formData, setFormData] = useState({
+    namewerdsf: '',
+    emaillkew: '',
+    messagesdfsds: '',
     name: '',
     email: '',
-    message: '',
-    spot1: '',
-    spot2: '',
-    spot3: ''
+    message: ''
   })
 
   const handleFormData = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    console.log(event)
     setFormData({
       ...formData,
-      [event.currentTarget.name]: event.currentTarget.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -40,19 +42,20 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         <Box>
-          <ContentBox count={1} headline={'Who am I'} copy={content}>
+          <ContentBox count={1} headline={'Get a hold of me'} copy={content}>
             <Form onSubmit={handleSubmit}>
               {/* Real Fields */}
-              <Form.Input onChange={handleFormData} type="text" value={formData.name} label="Name" required name="namewerdsf" />
-              <Form.Input onChange={handleFormData} type="text" value={formData.email} label="Email" required name="emaillkew" />
-              <Form.TextArea onChange={handleFormData} value={formData.message} label="Message" required name="messagesdfsds" />
+              <Form.Input onChange={handleFormData} type="text" value={formData.namewerdsf} label="Name" required name="namewerdsf" />
+              <Form.Input onChange={handleFormData} type="text" value={formData.emaillkew} label="Email" required name="emaillkew" />
+              <Form.TextArea onChange={handleFormData} value={formData.messagesdfsds} label="Message" required name="messagesdfsds" />
 
               {/* Hidden Fields */}
               <Form.HoneyPot>
-                <Form.Input type="text" label="Real Name" autocomplete="off" value={formData.spot1} onChange={handleFormData} name="name" />
-                <Form.Input type="text" label="Real Email" autocomplete="off" value={formData.spot2} onChange={handleFormData} name="email" />
-                <Form.TextArea label="Product You're asking about" value={formData.spot3} onChange={handleFormData} name="message" />
+                <Form.Input type="text" label="Real Name" autocomplete="off" value={formData.name} onChange={handleFormData} name="name" />
+                <Form.Input type="text" label="Real Email" autocomplete="off" value={formData.email} onChange={handleFormData} name="email" />
+                <Form.TextArea label="Product You're asking about" value={formData.message} onChange={handleFormData} name="message" />
               </Form.HoneyPot>
+              <Button variant="secondary" type='submit'>Send</Button>
             </Form>
           </ContentBox>
         </Box>

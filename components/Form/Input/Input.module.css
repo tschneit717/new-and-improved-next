@@ -1,0 +1,49 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.inputWrapper input {
+  padding: 0.5rem;
+  border: none;
+  background-clip: padding-box;
+  color: white;
+  background: none;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  outline: none;
+  font-family: 'Chivo Mono', monospace;
+}
+
+.inputWrapper .input:after {
+  content: '';
+  width: calc(100%);
+  height: calc(100% - 4px);
+  top: 2px;
+  display: block;
+  position: absolute;
+  background: linear-gradient(var(--dark), var(--dark));
+  z-index: 2;
+}
+
+.inputWrapper .input:before {
+  content: '';
+  width: calc(100%);
+  height: calc(100% - 4px);
+  top: 4px;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.label {
+  position: relative;
+  z-index: 3;
+  font-family: 'Iceland', cursive;
+}
