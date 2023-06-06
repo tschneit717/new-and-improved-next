@@ -5,16 +5,24 @@ import { Box } from '../components/Box'
 import { Form } from '../components/Form'
 import { type FormEvent, useState, type ChangeEvent } from 'react'
 import { Button } from '../components/Button'
+import { encode } from '../utilities/encode'
 
 export { getServerSideProps } from './../api/pages/contact'
 
 export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault()
     if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
       console.log('Spam detected')
     } else {
-      console.log('Form submitted')
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', formData })
+      })
+        .then(() => { alert('Success!') })
+        .catch(error => { alert(error) })
+
+      e.preventDefault()
     }
   }
   const [formData, setFormData] = useState({

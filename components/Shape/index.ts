@@ -1,1 +1,1 @@
-export { default as Shapes } from './Shapes.tsx'
+export { default as Shapes } from './Shapes'

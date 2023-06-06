@@ -8,9 +8,10 @@ Form.Input = InputField
 Form.TextArea = TextAreaField
 Form.HoneyPot = HoneyPot
 
-export default function Form ({ children, onSubmit }: FormProps): JSX.Element {
+export default function Form ({ children, isNetlifyForm, onSubmit }: FormProps): JSX.Element {
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={onSubmit} method="POST" data-netlify={isNetlifyForm} data-netlify-honeypot={isNetlifyForm ? 'bot-field' : ''}>
+      {isNetlifyForm && <input type="hidden" name="form-name" value="contact" />}
       {children}
     </form>
   )
