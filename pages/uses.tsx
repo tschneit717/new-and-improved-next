@@ -4,6 +4,7 @@ import { Layout } from '../components/Layout'
 export { getServerSideProps } from './../api/pages/uses'
 
 export default function UsesPage({ title, mobileTitle, tagline, content, image, accent, footer }): JSX.Element {
+  console.log(content)
   return (
     <div>
       <Head>
@@ -11,7 +12,7 @@ export default function UsesPage({ title, mobileTitle, tagline, content, image, 
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
-        <p>{content}</p>
+        {/* <p>{content}</p> */}
       </Layout>
     </div>
   )

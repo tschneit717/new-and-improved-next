@@ -25,7 +25,7 @@ export default function ContentBox({ image, headline, copy, count, minHeight = t
     }
     return <></>
   }
-  console.log(image)
+
   return (
     <div className={styles.container}>
         {image

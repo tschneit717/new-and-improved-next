@@ -14,12 +14,13 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
     if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
       console.log('Spam detected')
     } else {
+      console.log(formData)
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', formData })
       })
-        .then(() => { alert('Success!') })
+        .then(res => { console.log(res) })
         .catch(error => { alert(error) })
 
       e.preventDefault()
@@ -35,7 +36,6 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
   })
 
   const handleFormData = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    console.log(event)
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
