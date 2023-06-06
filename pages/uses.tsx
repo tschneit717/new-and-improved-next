@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout'
 
 export { getServerSideProps } from './../api/pages/uses'
 
-export default function UsesPage({ title, mobileTitle, tagline, content, accent, footer }): JSX.Element {
+export default function UsesPage({ title, mobileTitle, tagline, content, image, accent, footer }): JSX.Element {
   return (
     <div>
       <Head>

@@ -1,3 +1,4 @@
+import { type StaticImageData } from 'next/image'
 import { type PropsWithChildren } from 'react'
 
 export interface ContentBoxProps extends PropsWithChildren {
@@ -5,4 +6,5 @@ export interface ContentBoxProps extends PropsWithChildren {
   count: number
   minHeight?: boolean
   copy?: any[]
+  image?: StaticImageData
 }

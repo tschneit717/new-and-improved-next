@@ -5,7 +5,7 @@ import { Image } from '../components/Image'
 
 export { getServerSideProps } from './../api/pages/work'
 
-export default function ResumePage({ title, mobileTitle, tagline, content, companies, accent, footer }): JSX.Element {
+export default function ResumePage({ title, mobileTitle, tagline, content, image, companies, accent, footer }): JSX.Element {
   return (
     <div>
       <Head>

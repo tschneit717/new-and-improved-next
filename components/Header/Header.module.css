@@ -15,8 +15,17 @@
 }
 
 .titleSection {
-  display: block;
+  display: flex;
   font-family: 'Chivo Mono', monospace;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 1rem;
+  padding-right: 1rem;
 }
 
 .mobileTitle {
@@ -37,6 +46,14 @@
 
 .tagline {
   display: none
+}
+
+.logo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  flex-shrink: 0;
 }
 
 @media only screen and (min-width: 1000px) {

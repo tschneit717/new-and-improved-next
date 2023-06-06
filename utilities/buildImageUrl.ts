@@ -12,8 +12,10 @@ export const buildImageUrl: BuildImageUrlType = (image, client, originalAsset) =
       .auto('format')
       .url()
 
+    const id = originalAsset ? originalAsset._id : image._key
+
     return {
-      id: originalAsset._id ?? image._key,
+      id: id ?? '',
       type: 'image',
       props: { src, alt: image.alt ?? '' }
     }

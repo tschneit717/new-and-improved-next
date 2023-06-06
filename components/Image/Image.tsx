@@ -1,15 +1,15 @@
 import cn from 'classnames'
-import NextImage from 'next/image'
+import NextImage, { type StaticImageData } from 'next/image'
 
 type ImageProps = {
-  src: string
+  src: string | StaticImageData
   alt: string
   fill: true
   height?: number
   width?: number
   classes?: string | string[]
 } | {
-  src: string
+  src: string | StaticImageData
   alt: string
   fill: false
   height: number

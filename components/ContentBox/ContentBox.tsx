@@ -2,10 +2,11 @@ import Img from 'next/image'
 import { type ContentBoxProps } from './ContentBox.interface'
 import styles from './ContentBox.module.css'
 import cn from 'classnames'
+import { Image } from '../Image'
 
 type renderChildType = (child: any) => JSX.Element
 
-export default function ContentBox({ headline, copy, count, minHeight = true, children }: ContentBoxProps): JSX.Element {
+export default function ContentBox({ image, headline, copy, count, minHeight = true, children }: ContentBoxProps): JSX.Element {
   const renderChild: renderChildType = (child) => {
     if (child.type === 'text') {
       return <p key={child.id} className={styles.p}>{child.content}</p>
@@ -24,19 +25,24 @@ export default function ContentBox({ headline, copy, count, minHeight = true, ch
     }
     return <></>
   }
+  console.log(image)
   return (
-    <>
+    <div className={styles.container}>
+        {image
+          ? (
+              <Image classes={styles.imageContainer} fill={true} src={image.src} alt={headline}/>
+            )
+          : <></>
+        }
       <div className={cn([styles.contentBox, { [styles.minHeight]: minHeight }])} data-count={count}>
-        <div className={styles.countBox1} />
-        <div className={styles.countBox2} />
         <h2 className={styles.h2}>{headline}</h2>
         {copy
           ? copy.map(item => {
             return renderChild(item)
           })
           : <></>}
-        {children}
+        {children ? <div className={styles.children}>{children}</div> : <></>}
       </div>
-    </>
+    </div>
   )
 }

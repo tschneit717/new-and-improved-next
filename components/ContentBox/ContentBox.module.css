@@ -1,9 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto 0;
+  gap: 2rem;
+}
+
+.container:first-child {
+  margin-top: 4rem;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
 .contentBox {
   display: flex;
   flex-direction: column;
   padding: 2rem 4rem;
   position: relative;
-  margin: 48px 8rem;
+  margin: 0rem auto 3rem;
 }
 
 .minHeight {
@@ -32,19 +51,31 @@
   margin-bottom: 1rem;
 }
 
-.contentBox::before {
-  content: '';
-  width: 2px;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
+.imageContainer {
+  position: relative;
+  min-height: 400px;
+  min-width: 300px;
+}
+
+.imageContainer img {
+  object-fit: cover;
+}
+
+.contentBox {
+  background-clip: padding-box;
   background: linear-gradient(to bottom, var(--primary), var(--secondary));
 }
 
-.contentBox:nth-child(odd)::before {
-  left: 0;
- }
+.contentBox::before {
+  content: '';
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  top: 2px;
+  left: 2px;
+  display: block;
+  position: absolute;
+  background: linear-gradient(var(--dark), var(--dark));
+}
 
 .contentBox .countBox1 {
   width: 80%;
@@ -106,4 +137,8 @@
   background: linear-gradient(var(--dark), var(--dark)) padding-box,
   linear-gradient(to right, var(--primary), var(--secondary)) border-box;
   border-top-right-radius: 60px;
+}
+
+.children {
+  position: relative;
 }

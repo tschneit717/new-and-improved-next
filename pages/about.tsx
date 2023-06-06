@@ -5,7 +5,7 @@ import { Box } from '../components/Box'
 
 export { getServerSideProps } from './../api/pages/about'
 
-export default function AboutPage({ title, mobileTitle, tagline, content, accent, footer }): JSX.Element {
+export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   return (
     <div>
       <Head>
@@ -14,7 +14,7 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         <Box>
-          <ContentBox count={1} headline={'Who am I'} copy={content} />
+          <ContentBox image={image} count={1} headline={'Who am I'} copy={content} />
         </Box>
       </Layout>
     </div>
