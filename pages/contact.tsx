@@ -10,12 +10,6 @@ import { Button } from '../components/Button'
 export { getServerSideProps } from './../api/pages/contact'
 
 export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault()
-    if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
-      console.log('Spam detected')
-    }
-  }
   const [formData, setFormData] = useState({
     namewerdsf: '',
     emaillkew: '',
@@ -24,6 +18,24 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
     email: '',
     message: ''
   })
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formValues = new FormData(form)
+
+    if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
+      console.log('Spam detected')
+    } else {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formValues as any).toString()
+      })
+        .then(() => { console.log('Form successfully submitted') })
+        .catch((error) => { alert(error) })
+    }
+  }
 
   const handleFormData = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setFormData({
