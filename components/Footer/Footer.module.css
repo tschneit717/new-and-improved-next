@@ -3,16 +3,27 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+@media (min-width: 768px) {
+  .footer {
+    height: 60px;
+  }
 }
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .container p {
@@ -23,8 +34,20 @@
 .container ul {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 2rem;
 }
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+.container li:not(:last-child) {
+  border-right: 1px solid #fff;
+  padding-right: 2rem;
+}
+
 .imageContainer {
   position: relative;
   display: block;

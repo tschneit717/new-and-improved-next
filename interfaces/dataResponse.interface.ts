@@ -8,22 +8,22 @@ export enum REFERENCE_KEYS {
   FOOTER = 'footer'
 }
 
-export interface CompanyResponseType {
-  _createdAt: string
-  _rev: string
-  _type: string
-  description: string
+export interface DataResponseType {
+  _createdAt?: string
+  _rev?: string
+  _type?: string
+  description?: string
   company?: string
   text?: string
-  socialLinks?: ReferenceType[] | CompanyResponseType[]
-  _id: string
-  _updatedAt: string
-  image: {
-    asset: {
-      _type: string
-      _ref: string
+  socialLinks?: ReferenceType[] | DataResponseType[]
+  _id?: string
+  _updatedAt?: string
+  image?: {
+    asset?: {
+      _type?: string
+      _ref?: string
     }
-    _type: string
+    _type?: string
   }
 }
 
@@ -39,4 +39,4 @@ export interface GetReferenceDataProps {
   client: SanityClient
 }
 
-export type getReferenceDataType = (referenceName: REFERENCE_KEYS, sources: ReferenceType[], client: SanityClient) => Promise<CompanyResponseType[]>
+export type getReferenceDataType = (referenceName: REFERENCE_KEYS, sources: ReferenceType[], client: SanityClient) => Promise<DataResponseType[]>

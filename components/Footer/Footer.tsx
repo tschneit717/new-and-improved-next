@@ -2,8 +2,7 @@ import { Image } from '../Image'
 import styles from './Footer.module.css'
 export default function Footer ({ content }): JSX.Element {
   const currentYear = new Date().getFullYear()
-  const { text, socialLinks } = content[0]
-  console.log(socialLinks)
+  const { text, socialLinks } = content
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>

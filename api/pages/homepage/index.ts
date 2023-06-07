@@ -1,6 +1,6 @@
 import { buildImageUrl } from '../../../utilities/buildImageUrl'
 import { formatRichTextContent } from '../../../utilities/formatRichTextContent'
-import { client } from '../../client'
+import { client, getFooterContent } from '../../client'
 import { type SanityImageObject } from '@sanity/image-url/lib/types/types'
 
 export async function getServerSideProps({ req, res }): Promise<{ props: { title: string, mobileTitle: string, tagline: string, content: string | any[], image: SanityImageObject, accent: string, footer: unknown } }> {
@@ -8,6 +8,7 @@ export async function getServerSideProps({ req, res }): Promise<{ props: { title
   const { title, mobileTitle, tagline, content, accent, image, footer } = data[0]
   const formattedContent = formatRichTextContent(client, content)
   const imageFormatted = image ? buildImageUrl(image, client) : null
+  const footerContent = await getFooterContent(footer)
 
   return {
     props: {
@@ -17,7 +18,7 @@ export async function getServerSideProps({ req, res }): Promise<{ props: { title
       content: formattedContent,
       accent: accent ?? '',
       image: imageFormatted ? imageFormatted.props : {},
-      footer: footer ?? {}
+      footer: footerContent ?? {}
     }
   }
 }
