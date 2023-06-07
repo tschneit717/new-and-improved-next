@@ -7,7 +7,7 @@ export async function getServerSideProps({ req, res }): Promise<{ props: { title
   const data = await client.fetch('*[ _type == "page" && slug.current  == "about" ]')
   const { title, mobileTitle, tagline, content, accent, image } = data[0]
   const formattedContent = formatRichTextContent(client, content)
-  const imageFormatted = buildImageUrl(image, client)
+  const imageFormatted = image ? buildImageUrl(image, client) : null
 
   return {
     props: {
