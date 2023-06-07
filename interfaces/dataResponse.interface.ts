@@ -4,7 +4,8 @@ export enum REFERENCE_KEYS {
   COMPANY = 'company',
   PROJECT = 'project',
   SOCIAL_LINK = 'socialLink',
-  USES = 'uses'
+  USES = 'uses',
+  FOOTER = 'footer'
 }
 
 export interface CompanyResponseType {
@@ -12,7 +13,9 @@ export interface CompanyResponseType {
   _rev: string
   _type: string
   description: string
-  company: string
+  company?: string
+  text?: string
+  socialLinks?: ReferenceType[] | CompanyResponseType[]
   _id: string
   _updatedAt: string
   image: {
@@ -20,7 +23,8 @@ export interface CompanyResponseType {
       _type: string
       _ref: string
     }
-    _type: string }
+    _type: string
+  }
 }
 
 export interface ReferenceType {
