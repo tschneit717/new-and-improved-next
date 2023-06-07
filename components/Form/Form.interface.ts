@@ -4,4 +4,5 @@ export interface FormProps extends PropsWithChildren {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void
   isNetlifyForm?: boolean
   name?: string
+  action?: string
 }
