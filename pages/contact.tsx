@@ -5,25 +5,15 @@ import { Box } from '../components/Box'
 import { Form } from '../components/Form'
 import { type FormEvent, useState, type ChangeEvent } from 'react'
 import { Button } from '../components/Button'
-import { encode } from '../utilities/encode'
+// import { encode } from '../utilities/encode'
 
 export { getServerSideProps } from './../api/pages/contact'
 
 export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
     if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
       console.log('Spam detected')
-    } else {
-      console.log(formData)
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', formData })
-      })
-        .then(res => { console.log(res) })
-        .catch(error => { alert(error) })
-
-      e.preventDefault()
     }
   }
   const [formData, setFormData] = useState({
@@ -51,7 +41,7 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         <Box>
           <ContentBox count={1} headline={'Get a hold of me'} copy={content}>
-            <Form onSubmit={handleSubmit} isNetlifyForm>
+            <Form onSubmit={handleSubmit} isNetlifyForm={true} name="contact">
               {/* Real Fields */}
               <Form.Input onChange={handleFormData} type="text" value={formData.namewerdsf} label="Name" required name="namewerdsf" />
               <Form.Input onChange={handleFormData} type="text" value={formData.emaillkew} label="Email" required name="emaillkew" />
