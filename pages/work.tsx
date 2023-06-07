@@ -15,7 +15,7 @@ export default function ResumePage({ title, mobileTitle, tagline, content, image
         {companies.map(company => {
           // const src = company.image.props.src
           return (
-            <ContentBox minHeight={false} key={company._key} count={1} headline={company.company}>
+            <ContentBox minHeight={false} key={company._key ?? company._id} count={1} headline={company.company}>
               {/* <Image fill={false} width={400} height={200} src={src} classes="blockImage" alt={company.company} /> */}
               <p>{company.description}</p>
             </ContentBox>
