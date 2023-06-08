@@ -7,6 +7,7 @@ import { type FormEvent, useState, type ChangeEvent } from 'react'
 import { Button } from '../components/Button'
 // import { encode } from '../utilities/encode'
 import emailjs from '@emailjs/browser'
+import { validateEmail } from '../utilities/validateEmail'
 export { getServerSideProps } from './../api/pages/contact'
 
 export default function ContactPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
@@ -27,6 +28,9 @@ export default function ContactPage({ title, mobileTitle, tagline, content, acce
       console.log('Spam detected')
     } else {
       try {
+        if (!validateEmail(formData.emaillkew)) {
+          throw new Error('Invalid email')
+        }
         await emailjs.send(
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
           process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
