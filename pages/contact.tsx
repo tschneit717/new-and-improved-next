@@ -6,10 +6,11 @@ import { Form } from '../components/Form'
 import { type FormEvent, useState, type ChangeEvent } from 'react'
 import { Button } from '../components/Button'
 // import { encode } from '../utilities/encode'
-
+import emailjs from '@emailjs/browser'
 export { getServerSideProps } from './../api/pages/contact'
 
-export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
+export default function ContactPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
+  const [isLoading, toggleIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     namewerdsf: '',
     emaillkew: '',
@@ -19,22 +20,30 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
     message: ''
   })
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
-    const form = e.currentTarget
-    const formValues = new FormData(form)
-
+    toggleIsLoading(true)
     if (formData.name.length > 0 || formData.email.length > 0 || formData.message.length > 0) {
       console.log('Spam detected')
     } else {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formValues as any).toString()
-      })
-        .then(() => { console.log('Form successfully submitted') })
-        .catch((error) => { alert(error) })
+      try {
+        await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
+          {
+            from_name: formData.namewerdsf,
+            from_email: formData.emaillkew,
+            message: formData.messagesdfsds
+          }, process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ''
+
+        )
+        alert('Thanks for contacting me, I will get back to you soon!')
+      } catch (err) {
+        console.error(err)
+        alert("We can't submit the form, try again later?")
+      }
     }
+    toggleIsLoading(false)
   }
 
   const handleFormData = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -65,7 +74,7 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
                 <Form.Input type="text" label="Real Email" autocomplete="off" value={formData.email} onChange={handleFormData} name="email" />
                 <Form.TextArea label="Product You're asking about" value={formData.message} onChange={handleFormData} name="message" />
               </Form.HoneyPot>
-              <Button variant="secondary" type='submit'>Send</Button>
+              <Button disabled={isLoading} variant="secondary" type='submit'>Send</Button>
             </Form>
           </ContentBox>
         </Box>
