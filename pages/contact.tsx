@@ -60,7 +60,7 @@ export default function ContactPage({ title, mobileTitle, tagline, content, acce
   }
 
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -85,6 +85,6 @@ export default function ContactPage({ title, mobileTitle, tagline, content, acce
           </ContentBox>
         </Box>
       </Layout>
-    </div>
+    </>
   )
 }

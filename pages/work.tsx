@@ -6,7 +6,7 @@ export { getServerSideProps } from './../api/pages/work'
 
 export default function ResumePage({ title, mobileTitle, tagline, content, image, companies, accent, footer }): JSX.Element {
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -22,6 +22,6 @@ export default function ResumePage({ title, mobileTitle, tagline, content, image
           )
         })}
       </Layout>
-    </div>
+    </>
   )
 }

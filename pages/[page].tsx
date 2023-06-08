@@ -5,7 +5,7 @@ export { getServerSideProps } from '../api/pages/projects'
 
 export default function PageWithProps({ title, mobileTitle, tagline, content, image, accent, footer }): JSX.Element {
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -13,6 +13,6 @@ export default function PageWithProps({ title, mobileTitle, tagline, content, im
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer}>
         <p>{content}</p>
       </Layout>
-    </div>
+    </>
   )
 }

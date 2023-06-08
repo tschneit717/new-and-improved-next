@@ -7,7 +7,7 @@ export { getServerSideProps } from './../api/pages/about'
 
 export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,6 +17,6 @@ export default function AboutPage({ title, mobileTitle, tagline, content, accent
           <ContentBox image={image} count={1} headline={'Who am I'} copy={content} />
         </Box>
       </Layout>
-    </div>
+    </>
   )
 }

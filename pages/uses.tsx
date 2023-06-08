@@ -13,7 +13,7 @@ export default function UsesPage({ title, mobileTitle, tagline, content, image, 
   }, {})
 
   return (
-    <div>
+    <>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,6 +39,6 @@ export default function UsesPage({ title, mobileTitle, tagline, content, image, 
           }
           )}
       </Layout>
-    </div>
+    </>
   )
 }
