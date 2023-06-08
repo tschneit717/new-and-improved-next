@@ -23,7 +23,8 @@
 
 .hero h3 {
   font-size: 1.5rem;
-  font-family: 'Iceland', cursive;
+  font-family: Iceland, monospace;
+  font-weight: 400;
   margin: 0;
   line-height: 1;
 }

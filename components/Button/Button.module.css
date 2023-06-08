@@ -8,7 +8,8 @@
     font-size: 1.5rem;
     cursor: pointer;
     background: linear-gradient(to right, var(--primary), var(--secondary));
-    font-family: 'Iceland', monospace;
+    font-family: Iceland, monospace;
+    font-weight: 400;
 }
 
 .button[data-variant="secondary"] {

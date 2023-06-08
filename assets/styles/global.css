@@ -6,6 +6,12 @@
   --breakpoint: 1000px;
 }
 
+@font-face {
+  font-family: "Iceland";
+  src: local("Iceland"),
+    url("./../fonts/Iceland-Regular.ttf") format("truetype");
+}
+
 html,
 body {
   padding: 0;
@@ -32,7 +38,9 @@ img {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Iceland', cursive;
+  
+  font-family: Iceland, monospace;
+  font-weight: 400;
 }
 
 h1,

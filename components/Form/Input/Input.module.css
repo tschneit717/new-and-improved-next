@@ -45,5 +45,6 @@
 .label {
   position: relative;
   z-index: 3;
-  font-family: 'Iceland', cursive;
+  font-family: Iceland, monospace;
+  font-weight: 400;
 }
