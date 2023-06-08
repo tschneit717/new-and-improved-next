@@ -1,5 +1,6 @@
 .hero {
-  height: calc(100vh - 100px);
+  height: 100%;
+  max-height: calc(100vh - 100px);
   width: 100%;
   display: flex;
   padding: 0 1rem;
@@ -12,7 +13,7 @@
 }
 @media only screen and (min-width: 768px) {
   .hero {
-    height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
     padding: 0 2rem;
   }
 }

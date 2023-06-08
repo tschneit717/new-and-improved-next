@@ -7,7 +7,7 @@ import logo from './../../assets/images/ts_logo--light.png'
 
 export default function Layout({ title, mobileTitle, tagline, accent, children, footer, hero }: LayoutProps): JSX.Element {
   return (
-    <div>
+    <div className={styles.siteWrapper}>
       <Header logo={logo} mobileTitle={mobileTitle} title={title} tagline={tagline} accent={accent}></Header>
       {(hero && (hero?.text || hero?.image)) && (
         <Hero text={hero.text} subtext={hero.subtext} image={hero.image}></Hero>

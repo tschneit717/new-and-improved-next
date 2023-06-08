@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Accent } from '../Accent'
 import { Image } from '../Image'
 import { Nav } from '../Nav'
@@ -7,8 +8,7 @@ import styles from './Header.module.css'
 export default function Header({ logo, title, mobileTitle, tagline, accent }: HeaderProps): JSX.Element {
   return (
     <header className={styles.header}>
-      <div className={styles.titleSection}>
-
+      <Link href="/" className={styles.titleSection}>
        <Image src={logo} alt="logo" classes={styles.logo} fill={true} width={100} height={100} />
         <div className={styles.text}>
         <h1>
@@ -19,7 +19,7 @@ export default function Header({ logo, title, mobileTitle, tagline, accent }: He
         </h1>
         <p className={styles.tagline}>{tagline}</p>
         </div>
-      </div>
+      </Link>
       <Nav></Nav>
     </header>
   )
