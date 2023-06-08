@@ -11,15 +11,17 @@ import { validateEmail } from '../utilities/validateEmail'
 export { getServerSideProps } from './../api/pages/contact'
 
 export default function ContactPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
-  const [isLoading, toggleIsLoading] = useState(false)
-  const [formData, setFormData] = useState({
+  const initialData = {
     namewerdsf: '',
     emaillkew: '',
     messagesdfsds: '',
     name: '',
     email: '',
     message: ''
-  })
+  }
+
+  const [isLoading, toggleIsLoading] = useState(false)
+  const [formData, setFormData] = useState(initialData)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
@@ -39,8 +41,8 @@ export default function ContactPage({ title, mobileTitle, tagline, content, acce
             from_email: formData.emaillkew,
             message: formData.messagesdfsds
           }, process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? ''
-
         )
+        setFormData(initialData)
         alert('Thanks for contacting me, I will get back to you soon!')
       } catch (err) {
         console.error(err)
