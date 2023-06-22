@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout'
 import { ContentBox } from '../components/ContentBox'
 import { Box } from '../components/Box'
 
-export { getServerSideProps } from './../api/pages/about'
+export { getStaticProps } from './../api/pages/about'
 
 export default function AboutPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   return (
