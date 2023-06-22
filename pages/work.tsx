@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Layout } from '../components/Layout'
 import { ContentBox } from '../components/ContentBox'
 
-export { getServerSideProps } from './../api/pages/work'
+export { getStaticProps } from './../api/pages/work'
 
 export default function ResumePage({ title, mobileTitle, tagline, content, image, companies, accent, footer }): JSX.Element {
   return (

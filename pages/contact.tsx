@@ -8,7 +8,7 @@ import { Button } from '../components/Button'
 // import { encode } from '../utilities/encode'
 import emailjs from '@emailjs/browser'
 import { validateEmail } from '../utilities/validateEmail'
-export { getServerSideProps } from './../api/pages/contact'
+export { getStaticProps } from './../api/pages/contact'
 
 export default function ContactPage({ title, mobileTitle, tagline, content, accent, image, footer }): JSX.Element {
   const initialData = {

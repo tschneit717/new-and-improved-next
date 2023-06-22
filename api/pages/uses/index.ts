@@ -5,7 +5,7 @@ import { formatRichTextContent } from '../../../utilities/formatRichTextContent'
 import { getReferenceData } from '../../../utilities/getReferenceData'
 import { REFERENCE_KEYS } from '../../../interfaces/dataResponse.interface'
 
-export async function getServerSideProps({ req, res }): Promise<{ props: { title: string, mobileTitle: string, tagline: string, content: string | any[], image: SanityImageObject, accent: string, uses: any[], footer: unknown } }> {
+export async function getStaticProps({ req, res }): Promise<{ props: { title: string, mobileTitle: string, tagline: string, content: string | any[], image: SanityImageObject, accent: string, uses: any[], footer: unknown } }> {
   const data = await client.fetch('*[ _type == "page" && slug.current == "uses" ]')
   const { title, mobileTitle, tagline, content, accent, image, uses, footer } = data[0]
   const formattedContent = formatRichTextContent(client, content)

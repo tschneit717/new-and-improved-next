@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Layout } from '../components/Layout'
 
-export { getServerSideProps } from './../api/pages/homepage'
+export { getStaticProps } from './../api/pages/homepage'
 
 export default function HomePage({ title, mobileTitle, tagline, content, image, accent, footer }): JSX.Element {
   return (

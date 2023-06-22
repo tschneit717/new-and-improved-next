@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Layout } from '../components/Layout'
 
-export { getServerSideProps } from './../api/pages/uses'
+export { getStaticProps } from './../api/pages/uses'
 
 export default function UsesPage({ title, mobileTitle, tagline, content, image, accent, footer, uses }): JSX.Element {
   const organizedUses = uses.reduce((acc, curr) => {
