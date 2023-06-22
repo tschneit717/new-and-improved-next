@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Layout } from '../components/Layout'
+import { Three } from '../components/Three'
 
 export { getStaticProps } from './../api/pages/homepage'
 
@@ -12,6 +13,7 @@ export default function HomePage({ title, mobileTitle, tagline, content, image, 
       </Head>
       <Layout title={title} mobileTitle={mobileTitle} tagline={tagline} accent={accent} footer={footer} hero={{ text: title, subtext: tagline }}>
       </Layout>
+      <Three/>
     </>
   )
 }
