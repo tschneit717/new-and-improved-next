@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as ThreeJS from 'three'
 import styles from './Three.module.css'
-import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { useEffect, useRef, useState } from 'react'
 import {
   fragmentShader,
@@ -13,8 +14,8 @@ export default function Three(): JSX.Element {
   useEffect(() => {
     setWindowSize({ width: window.innerWidth, height: window.innerHeight, pixelRatio: window.devicePixelRatio })
   }, [])
-  const pointsRef = useRef()
-  const materialRef = useRef()
+  const pointsRef = useRef<ThreeJS.Points>()
+  const materialRef = useRef<ThreeJS.ShaderMaterial>()
 
   const uniforms = {
     ...getDefaultUniforms(windowSize),
@@ -41,17 +42,20 @@ export default function Three(): JSX.Element {
     const xRotation = 3.1415 / -2.135154
     const yRotation = 3.1415 / -0.8
     useFrame(() => {
-      materialRef.current.uniforms.u_time.value += 0.001
-      pointsRef.current.rotation.x += 0.00002
-      pointsRef.current.rotation.y += 0.00002
+      if (materialRef.current && pointsRef.current) {
+        const timeValue = materialRef.current.uniforms.u_time.value as number
+        materialRef.current.uniforms.u_time.value = timeValue + 0.001
+        pointsRef.current.rotation.x += 0.00002
+        pointsRef.current.rotation.y += 0.00002
+      }
     })
     return (
       <points
-      ref={pointsRef}
-      rotation={[xRotation, yRotation, 0]}
-    >
+        ref={pointsRef as any }
+        rotation={[xRotation, yRotation, 0]}
+      >
       <planeGeometry {...geometry} />
-      <shaderMaterial ref={materialRef} {...material} />
+      <shaderMaterial ref={materialRef as any} {...material} />
     </points>
     )
   }
@@ -63,7 +67,6 @@ export default function Three(): JSX.Element {
         <color attach={'background'} args={['#071013']} />
         <camera
           position={[20, -2.1333, 2]}
-          fov={120}
         ></camera>
         <PointsComponent/>
       </Canvas>,
